@@ -7,7 +7,11 @@
   - [Data Type](#Data-Type)
   - [Properites and Methods](#Properites-and-Methods)
   - [Arrays](#Arrays)
+  - [Object Literals](#Object-Literals)
+  - [Arrays of Objects](#Arrays-of-Objects)
+  - [For/While Loops](#For/While-Loops)
   - [Reference](#Reference)
+
 
 
 ---
@@ -157,11 +161,120 @@ console.log(fruits.indexOf('mangos'));
 ## Object Literals
 Object literals are key value pairs.
 
+```
+const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    hobbies: ['music', 'movies', 'sports'],
+    address: {
+        street: '50 main st',
+        city: 'Boston',
+        state: 'MA'
+    }
+}
 
+console.log(person);
+// Shows all information about the person.
+
+console.log(person.firstName);
+// Show first name of person.
+console.log(person.firstName, person.lastName);
+// Show first and last name of person.
+
+console.log(person.hobbies[1]);
+// Shows persons hobbie or take out the 1 to show all hobbies.
+
+console.log(person.address.city);
+// Shows persons city.
+
+
+const { firstName, lastName, } = person;
+// Turn objects into varaibles.
+
+console.log(firstName);
+
+
+const { address: { city }} = person;
+// For embedded objects into varaibles.
+
+console.log(city);
+
+
+person.email = 'gmail.com';
+// Add properites
+console.log(person);
+
+```
+
+---
+
+## Arrays of Objects
+Creating a array but each value inside is an object and converting them into JSON file.
+
+```
+const todos = [
+    {
+        id: 1,
+        text: 'Wash Dog',
+        isCompleted: true
+    },
+    {
+        id: 2,
+        text: 'Meeting with boss',
+        isCompleted: true
+    },
+    {
+        id: 3,
+        text: 'Dentist appt',
+        isCompleted: false
+    }
+];
+
+console.log(todos[1].text);
+// Shows the 2 ID and only shows the text.
+
+
+// Convert to JSON
+const todoJSON = JSON.stringify(todos);
+console.log(todoJSON);
+
+
+// Using a for loop
+for(let i = 0; i < todos.length; i++) {
+    console.log(todos[i].text);
+}
+
+for(let todo of todos) {
+    console.log(todo)
+    console.log(todo.id)
+}
+
+```
+
+---
+## For/While Loops
+
+```
+// For
+for(let i = 0; i <= 10; i++) {
+    console.log(`For Loop Number: ${i}`);
+}
+
+
+// While
+let i = 0;
+while(i < 10) {
+    console.log(`While Loop Number: ${i}`);
+    i++;
+}
+```
+
+---
 
 ---
 ## Reference
 
-JavaScript Crash Course For Beginners.
+JavaScript Crash Course For Beginners.<br>
 https://www.youtube.com/watch?v=hdI2bqOjy3c
 
