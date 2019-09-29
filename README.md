@@ -10,8 +10,11 @@
   - [Object Literals](#Object-Literals)
   - [Arrays of Objects](#Arrays-of-Objects)
   - [For/While Loops](#For/While-Loops)
+  - [Conditionals](#Conditionals)
+  - [Functions](#Functions)
+  - [Object-Oriented Programming](#Object-Oriented-Programming)
+  - [DOM](#DOM)
   - [Reference](#Reference)
-
 
 
 ---
@@ -252,6 +255,42 @@ for(let todo of todos) {
 
 ```
 
+### Higher order array methods.
+
+* forEach - loops
+* map - Creates a new array from an array.
+* filter - Creates a new array based on a condition.
+
+```
+// forEach
+todos.forEach(function(todo) {
+    console.log(todo.text);
+});
+
+// map
+const todoText = todos.map(function(todo) {
+    return todo.text;
+});
+
+console.log(todoText);
+
+// filter
+const todoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+});
+
+console.log(todoCompleted);
+
+// filter and map. Returns an array of the text of the ones that are completed.
+const todoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+}).map(function(todo) {
+    return todo.text;
+})
+
+console.log(todoCompleted);
+```
+
 ---
 ## For/While Loops
 
@@ -272,7 +311,115 @@ while(i < 10) {
 
 ---
 
+## Conditionals
+
+```
+// == matches if the same.
+// === matches if the same + the same data types.
+// || - Or.
+//  && - And.
+
+const x = 4;
+const y = 10;
+
+if(x > 5 || y > 10) {
+    console.log('x is 10');
+} else if(x > 10) {
+    console.log('x is greater than 10');
+} else {
+    console.log('x is less than 10');
+}
+```
+
+```
+// Switch
+const x = 11;
+
+const colour = x > 10 ? 'red' : 'blue';
+
+switch(colour) {
+    case 'red':
+        console.log('colour is red');
+        break;
+    case 'blue':
+        console.log('colour is blue');
+        break;
+    default:
+        console.log('colour is NOT red or blue');
+        break;
+}
+```
+
 ---
+
+## Functions
+
+```
+function addNums(num1, num2) {
+    console.log(num1 + num2);
+}
+
+// You get "NaN" which means "Not a Number".
+addNums();
+```
+
+```
+const addNums = (num1 = 1, num2 = 1) => {
+    return num1 + num2;
+}
+
+console.log(addNums(5, 5));
+
+
+// Shorter version
+const addNums2 = num1 => num1 + 5;
+
+console.log(addNums2(5));
+```
+---
+
+## Object-Oriented Programming
+
+```
+// Constructor function
+function Person(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = dob;
+}
+    this.getFullName = function() {
+        return $`${this.firstName} ${this.lastName}`;
+    }
+
+
+// Class
+// class Person {
+//     constructor(firstName, lastName, dob) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.dob = dob;
+//     }
+
+//     getFullName() {
+//         return $`${this.firstName} ${this.lastName}`;
+//     }
+// }
+
+
+// Instantiate object
+const person1 = new Person('John', 'Doe', '4-3-1980');
+const person2 = new Person('Mary', 'Smith', '3-6-1990');
+
+console.log(person2.dob);
+console.log(person1.getFullName());
+```
+---
+## DOM
+
+The Document object model. It is like a tree structureof your whole document, e.g HTML tags.
+
+---
+
 ## Reference
 
 JavaScript Crash Course For Beginners.<br>
